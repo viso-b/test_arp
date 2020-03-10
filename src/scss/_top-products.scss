@@ -1,0 +1,111 @@
+section.top-products{
+    > h3{
+        @include fontHeader(40px);
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .top-products_conteiner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .product{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background-color: $productbackgroundColor;
+            box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+            &.active{
+                transform: scale(1.05); 
+                button.more{
+                    display: flex; 
+                }
+            }
+            img{
+                box-shadow: inset 0 0 0 10px $borderProduct;
+            }
+            > h3{
+                @include fontHeader(24px);
+                margin: 25px auto 20px;
+                max-width: 235px;
+                line-height: 110%;
+            }
+            p{
+                margin: 0 auto;
+                font-weight: 300;
+                line-height: 105%;
+                max-width: 250px;
+                color: $productFontColor;
+            }
+            button.more{
+                @include buttonSwitch;
+                display: none;
+                margin-top: 20px;
+                cursor: pointer;
+                align-self: flex-end;
+                &:after{
+                    transform: rotate(135deg);
+                }
+            }
+        }
+    }
+}
+@media (max-width: $tableWidth) {
+    section.top-products{
+        .top-products_conteiner{
+            padding: 20px;
+            .product{
+                padding: 30px;
+                img{
+                    width: 155px;
+                }
+                > h3{
+                    font-size: 16px;
+                    margin: 16px auto 10px;
+                    max-width: 160px;
+                }
+                p{
+
+                }
+                &.active{
+                    > h3{
+                        font-size: 19px;
+                    }
+                }
+                 
+            }
+        }
+    }
+}
+@media (max-width: $phoneWidth) {
+    section.top-products{
+        margin-top: 130px;
+        > h3{
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .top-products_conteiner{
+            flex-direction: column;
+            .product{
+                padding: 16px;
+                margin: 11px 0 ;
+                > h3{
+                    font-size: 16px;
+                    margin: 16px auto 10px;
+                }
+                p{
+                    max-width: 180px;
+                    font-size: 14px;
+                }
+                button.more{
+                    display: flex; 
+                }
+                &.active{
+                    transform: unset;
+                }
+                 
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+section.partners{
+    transform: translateY(-100px);
+    h4{
+        margin-bottom: 20px;
+        text-align: center;
+        @include fontHeader(40px)       
+    }
+    .list-partners{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: $secondaryColor;
+        padding: 20px 176px 0;
+        flex-wrap: wrap;
+        li:first-of-type,
+        li:last-of-type{
+            width: 39px;
+            height: 39px;
+            border: 1px solid $borderDecorNav;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            cursor: pointer;
+            &:after{
+                content: '';
+                display: block;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid $borderDecorNav;
+                border-left: 1px solid $borderDecorNav;
+                
+            }
+        }
+        li:first-of-type{
+            &:after{
+                transform: rotate(-45deg);
+            }
+        }
+        li:last-of-type{
+            &:after{
+                transform: rotate(135deg);
+            }
+        }
+    }
+}
+@media screen and (max-width: $desktopWidth  ) {
+    section.partners{
+        .list-partners{
+            padding: 0px $desktopPadding;
+        }
+    }
+
+}
+
+@media (max-width: $tableWidth) {
+    section.partners{
+        h4{
+            font-size: 28px;
+        }
+        ul.list-partners{
+            padding: 0px $tablePadding;
+            li:nth-last-child(2),
+            li:nth-last-child(3){
+                display: none;
+            }
+        }
+    }
+}
+@media (max-width: $phoneWidth) {
+    section.partners{
+        transform: translateY(-30px);
+        ul.list-partners{
+            position: relative;
+            li:nth-last-child(4),
+            li:nth-last-child(5){
+                display: none;
+            }
+            li{
+                flex-shrink: 0;
+                padding: 0 15px;
+            }
+            li:first-child{
+                order: 1;
+                transform: translateX(-40px);
+
+            }
+            li:last-child{
+                order: 2;
+                transform: translateX(40px);
+            }
+            li:first-child,
+            li:last-child{
+                position: absolute;
+                top: 130px;
+            }
+        }
+    }
+}

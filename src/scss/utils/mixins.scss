@@ -1,0 +1,105 @@
+@mixin triangle($width_tr, $height_tr, $color) {
+
+     width: 0;
+     height: 0;
+     border-bottom: $width_tr solid $color;
+     border-left: $width_tr / 1.7 solid transparent;
+     border-right: $width_tr / 1.7 solid transparent;
+     border-radius: 10px;
+    
+    &:after{
+        width: $width_tr * 1.12 ;
+        height: $height_tr;
+        background-color: $color;
+        border-radius: 10px;
+        box-shadow: 0 0 0 $height_tr $color;
+
+    }
+    &:after{ 
+        content: '';
+        position: absolute;
+    }
+
+}
+@mixin logo {
+    .logo{
+        width: 104px;
+        height: 48px;
+        background: url('../img/logo.png') no-repeat center/contain;
+    }
+}
+@mixin buttonBlackWhite($content) {
+    line-height: 17px;
+    color: $secondaryFontColor;
+    font-weight: 700;
+    cursor: pointer;
+    &:after{
+        content: $content;
+        width: 68px;
+        height: 34px;
+        background-color: $backgroundBttn;
+        box-shadow: 2px 2px 8px rgba(19, 3, 113, 0.15);
+        color: $secondaryColor;
+        padding: 7px 24px 7px 2px;
+        text-transform: lowercase;
+        margin-left: 2px;
+    }
+}
+@mixin fontHeader($font-size){
+    font-size: $font-size;
+    line-height: 110%;
+    color: $secondaryFontColor;
+    text-transform: uppercase;
+    font-family: $primaryFont;
+}
+
+@mixin buttonSwitch {
+    width: 39px;
+    height: 39px;
+    border: 1px solid $borderDecorNav;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    cursor: pointer;
+    &:after{
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid $borderDecorNav;
+        border-left: 1px solid $borderDecorNav;
+    }
+}
+@mixin quotes($widthDecorLine:210px){
+    font-weight: 300;
+    line-height: 104.5%;
+    color: $fontColorQoutes;
+    > span.author{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 104.5%;
+        color: $fontColorAuthor;
+        &:before{
+            content:'';
+            width: $widthDecorLine;
+            margin-bottom: 6px;
+            border-top: 1px solid $fontColorAuthor;
+        }
+    }
+}
+@mixin decoration($size, $top){
+    &:before{
+        content: '“';
+        display: block;
+        font-family: $primaryFont;
+        font-size: $size;
+        text-align: left;
+        position: absolute;
+        top: $top;
+        left: 0;
+        color: $decorInvertedCommas;
+    }
+    
+}

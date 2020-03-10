@@ -1,0 +1,55 @@
+.achievements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px $mainPadding;
+    
+    h5{
+        @include fontHeader(28px);
+        margin-bottom: 36px;
+    }
+    .list-achievements{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        li{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $fontColorQoutes;
+            font-family: $secondaryFont;
+            margin: 0 10px;
+            .like-icon{
+                width: 21px;
+                height: 21px;
+                background: no-repeat center/contain;
+            }
+            .number-value{
+                font-size: 2.12rem;
+                line-height: 40px;
+                text-transform: uppercase;
+            }
+            h6{
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+@media (max-width: $desktopWidth  ) {
+    .achievements{
+        padding: 45px $desktopPadding;
+    }
+}
+@media (max-width: $tableWidth) {
+    .achievements{
+        padding:  63px $tablePadding;
+        .list-achievements{
+            li{
+                width: calc( 50%- 20px);
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

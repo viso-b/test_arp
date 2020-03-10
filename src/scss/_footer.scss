@@ -1,0 +1,67 @@
+footer{
+    padding: 30px 30px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &::before{
+        content: '';
+        display: block;
+        width: 70%;
+        border-top: 1px solid $borderdecorFooter;
+    }
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 70%;
+        padding: 20px;
+        .navigation-menu{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            li{
+                a{
+                    color: $mainFontColor;
+                }
+                button{
+                    @include buttonBlackWhite('to us');
+                }
+            }
+        }
+        @include logo;
+
+    }
+}
+@media (max-width: $tableWidth) {
+    footer{
+        padding: 30px 0 15px;
+        nav{
+            width: 90%;
+            padding: 20px 0 10px;
+        }
+    }
+}
+@media (max-width: $phoneWidth) {
+    footer{
+        padding: 30px 0 15px;
+        nav{
+            justify-content: space-between;
+            ul.navigation-menu{
+                flex-direction: column;
+                align-items: flex-start;
+                flex-grow: unset;
+                li{
+                    padding: 5px;
+                }
+            }
+            .logo{
+                align-self: flex-start;
+                width: 76px;
+                order: -3;
+            }
+        }
+    }
+}

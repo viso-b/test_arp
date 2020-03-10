@@ -1,0 +1,167 @@
+.bottom{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h4{
+        @include fontHeader(20px);
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-right: 165px;
+    }
+    img{
+        max-width: 50%;
+        height: auto;
+    }
+    article.top-sales{
+        width: 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h3{
+            @include fontHeader(53px);
+            max-width: 503px;
+            margin-bottom: 62px;
+        }
+        p{
+           color: $productFontColor;
+           max-width: 470px;
+           font-size: 22px;
+        }
+    }
+    .reviews{
+        width: 50%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h3{
+            @include fontHeader(40px); 
+            margin-bottom: 140px;
+        }
+        .rewiews_container{
+            position: relative;
+            display: flex;
+            align-items: center;
+            @include decoration(222px, -70px);
+            p{
+                max-width: 228px;
+                @include quotes(254px);
+                > span.author{
+                    align-items: flex-start;
+                    margin-top: 47px;
+                }
+            }
+            .image{
+                width: 240px;
+                height: 240px;
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 5px $borderProduct;
+                background: no-repeat center/cover;
+                margin-left: 48px;
+            }
+        }
+        .buttons-container{
+            display: flex;
+            align-items: center;
+            align-self: flex-start;
+            transform: translateX(65px);
+            button{
+                @include buttonSwitch;
+                margin: 0 25px;
+            }
+            .prev{
+                &:after{
+                    transform: rotate(-45deg);
+                }
+            }
+            .next{
+                &:after{
+                    transform: rotate(135deg);
+                }
+            }
+        }
+    }
+
+}
+@media (max-width: $tableWidth) {
+    .bottom{
+        margin-top: 45px;
+        h4{
+            font-size: 14px;
+            margin: 16px;
+
+        }
+        article.top-sales{
+            h3{
+                font-size: 32px;       
+                max-width: 315px;
+                margin-bottom: 15px;
+            }
+            p{
+               max-width: 260px;
+               font-size: 16px;
+            }
+        }
+        .reviews{
+            h3{
+                font-size: 28px;
+                margin-bottom: 54px;
+            }
+            .rewiews_container{
+                &::before{
+                    font-size: 180px;
+                }
+                h3{
+                    font-size: 28px;
+                }
+                p{
+                    max-width: 216px;
+                    font-size: 14px;
+                    > span.author{
+                        margin-top: 20px;
+                        &:before{
+                            content:'';
+                            width: 140px;
+                        }
+                    }
+                }
+                .image{
+                    width: 110px;
+                    height: 110px;
+                    margin-left: 10px;
+                }
+            }
+            .buttons-container{
+                transform: translateX(-9px);
+                button{
+                    @include buttonSwitch;
+                    margin: 45px 25px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: $phoneWidth) {
+    .bottom{
+        flex-direction: column;
+        article.top-sales{
+            width: 100%;
+            padding: 24px;
+        }
+        img{
+           max-width: 100%;
+
+        }
+        .reviews{
+            width: 100%;
+            order: 4;
+            padding: 36px;
+        }
+        .buttons-container{
+
+        }
+    }
+}

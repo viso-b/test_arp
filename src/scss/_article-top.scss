@@ -1,0 +1,140 @@
+article.top{
+    position: relative;
+    text-align: center;
+    padding: 48px 48px 147px;
+    display: flex;
+    align-items: center;
+    background: url('../img/decor_1.png') no-repeat 0 100%,
+    url('../img/decor_2.png') repeat-y 70vw 0;
+    overflow: hidden;
+    > h2{
+        display: none;
+    }
+    section.greeting{
+        transform: translate(-30px, -30px); 
+        display: flex;
+        flex-direction: column;       
+        h2{
+            max-width: 495px;
+            @include fontHeader(67px);
+            margin-bottom: 28px;
+        }
+        p{
+            max-width: 369px;
+            font-weight: 200;
+            line-height: 17px; 
+            color: $primaryFontColorDark;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+        button{
+            @include buttonBlackWhite('more');
+        }    
+    }
+    .like-img{
+        background: url('../img/decorative_terrarium.png') no-repeat center/contain;
+        width: 491px;
+        height: 534px;
+    }
+    .triangle-left{
+        z-index: -6666;
+        position: absolute;
+        left: -200px;
+        top:10px;
+        opacity: 0.15;
+        @include triangle(600px, 9px, #DFC9BE);
+        transform: rotate(-10deg);
+        &:after{
+            transform: rotate(60deg) translate(176px, 286px);
+        }
+    }
+    .triangle-right_small{
+        z-index: -6666;
+        position: absolute;
+        right: 55px;
+        bottom: -45px;
+        opacity: 0.15;
+        @include triangle(300px, 6px, #CDCAC6);
+        transform: rotate(312deg);
+        &:after{
+            transform: rotate(-60deg) translate(-254px, -150px);
+        }
+    }
+    .triangle-right{
+        z-index: -6666;
+        position: absolute;
+        right: -350px;
+        bottom:-45px;
+        opacity: 0.15;
+        @include triangle(600px, 9px, #DFC9BE);
+        transform: rotate(-10deg);
+        &:after{
+            transform: rotate(60deg) translate(176px, 286px);
+        }
+    }
+}
+@media (max-width: $tableWidth) {
+    article.top{
+        margin-top: 56px;
+        padding: 0 16px 146px;
+        .triangle-left{
+            @include triangle(500px, 9px, #DFC9BE);
+            &:after{
+                transform: rotate(60deg) translate(142px, 240px);
+            }
+        }
+        .triangle-right_small{
+            right: -155px;
+            bottom: 130px;
+        }
+        .triangle-right{
+           display: none;
+        }
+        section.greeting{
+            h2{
+                font-size: 40px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: $phoneWidth) {
+    article.top{
+        background: url('../img/decor_1.png') no-repeat 0px 150%,
+        url('../img/decor_2.png') no-repeat 150% 30% /220px 250px ;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 16px;
+        position: relative;
+        padding-bottom: 130px;
+
+        h2{
+            display: block;
+            max-width: 370px;
+            @include fontHeader(40px)
+        }
+        .like-img{
+            width: 346px;
+            height: 377px;
+        }
+        section.greeting{
+            margin-top: 30px;
+            h2{
+                display: none;
+            }
+            blockquote{
+                margin-left: 50px;
+            }
+        }
+        .triangle-right_small{
+            right: -240px;
+            bottom: -70px;
+        }
+        .triangle-left{
+            left:-70%;
+            top: -10px;
+        }
+    }
+}
